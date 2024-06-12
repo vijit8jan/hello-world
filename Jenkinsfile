@@ -4,13 +4,13 @@ pipeline {
         // Define environment variables
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        EC2_IP = 'YOUR_EC2_INSTANCE_PUBLIC_IP'
+        EC2_IP = '54.174.125.124'
     }
     stages {
         stage('Checkout') {
             steps {
                 // Checkout code from Git repository
-                git 'https://github.com/your-repo/hello-world-python.git'
+                git 'https://github.com/rushikeshmj/hello-world.git'
             }
         }
         stage('Deploy') {
@@ -21,7 +21,7 @@ pipeline {
                     ssh -o StrictHostKeyChecking=no ec2-user@${EC2_IP} << EOF
                     sudo yum update -y
                     sudo yum install -y python3 git
-                    git clone https://github.com/your-repo/hello-world-python.git
+                    git clone https://github.com/rushikeshmj/hello-world.git
                     cd hello-world-python
                     python3 app.py &
                     exit
