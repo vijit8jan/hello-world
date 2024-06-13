@@ -19,7 +19,7 @@ pipeline {
                 script {
                     // SSH into EC2 instance and deploy the application
                     sh '''
-                    ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no ubuntu@${EC2_IP} << EOF
+                    ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no ec2-user@${EC2_IP} << EOF
                     sudo yum update -y
                     sudo yum install -y python3 git
                     cd ~
