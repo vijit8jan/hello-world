@@ -19,6 +19,8 @@ pipeline {
                 script {
                     // Running tests
                     sh '''
+                    git clone https://github.com/rushikeshmj/hello-world.git
+                    cd ~/hello-world
                     pytest main.py
                     exit
                     EOF
@@ -30,6 +32,7 @@ pipeline {
             steps {
                 script {
                     sh '''
+                    cd ~/hello-world
                     docker build -t pythonapp .
                     exit
                     EOF
@@ -41,6 +44,7 @@ pipeline {
             steps {
                 script {
                     sh '''
+                    cd ~/hello-world
                     docker run --name pythoncontainer -d -p 9000:80 pythonapp
                     echo 'Application deployed successfully!'
                     exit
