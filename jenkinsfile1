@@ -19,7 +19,7 @@ pipeline {
                 script {
                     // Running tests
                     sh '''
-                    git clone https://github.com/rushikeshmj/hello-world.git
+                    git clone https://github.com/vijit8jan/hello-world.git
                     cd /home/ec2-user/hello-world
                     pytest main.py
                     exit
