@@ -20,6 +20,7 @@ pipeline {
                     // Running tests
                     sh '''
                     pwd
+                    rm -rf hello-world  
                     git clone https://github.com/vijit8jan/hello-world.git
                     cd hello-world
                     pytest main.py
