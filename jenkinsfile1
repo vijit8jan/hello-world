@@ -41,7 +41,7 @@ pipeline {
                 script {
                     try {
                         // Build the Docker image
-                        sh "docker build -t ${IMAGE_NAME} ."
+                        sh "docker build -t pythonapp ."
                     } catch (Exception e) {
                         currentBuild.result = 'FAILURE'
                         error "Build Docker Image stage failed: ${e.message}"
@@ -73,7 +73,7 @@ pipeline {
                 script {
                     try {
                         // Run the Docker container
-                        sh "docker run --name ${CONTAINER_NAME} -d -p 8080:80 ${IMAGE_NAME}"
+                        sh "docker run --name pythonapp -d -p 9000:80 pythonapp"
                         echo 'Application deployed successfully!'
                     } catch (Exception e) {
                         currentBuild.result = 'FAILURE'
@@ -107,4 +107,5 @@ pipeline {
             }
         }
     }
+}
 }
