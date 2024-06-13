@@ -19,6 +19,7 @@ pipeline {
                 script {
                     try {
                         // Run tests
+                        sh "rm -rf hello-world"
                         sh "git clone https://github.com/vijit8jan/hello-world.git"
                         sh "cd hello-world"
                         sh 'pytest main.py'
