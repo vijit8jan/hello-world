@@ -20,7 +20,7 @@ pipeline {
                     // Running tests
                     sh '''
                     pwd
-                    cd /home/ec2-user/hello-world
+                    cd /home/ec2-user/
                     git clone https://github.com/vijit8jan/hello-world.git
                     pytest main.py
                     exit
