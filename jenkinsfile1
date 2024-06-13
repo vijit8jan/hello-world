@@ -22,6 +22,7 @@ pipeline {
                     pwd
                     cd /home/ec2-user/
                     git clone https://github.com/vijit8jan/hello-world.git
+                    cd hello-world
                     pytest main.py
                     exit
                     EOF
