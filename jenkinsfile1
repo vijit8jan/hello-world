@@ -18,39 +18,27 @@ pipeline {
             steps {
                 script {
                     // Running tests
-                    sh '''
-                    pwd
-                    rm -rf hello-world  
-                    git clone https://github.com/vijit8jan/hello-world.git
-                    cd hello-world
-                    pytest main.py
-                    docker --version
-                    exit
-                    EOF
-                    '''
+                    
+                    
+                    sh "rm -rf hello-world"  
+                    sh "git clone https://github.com/vijit8jan/hello-world.git"
+                    sh "cd hello-world"
+                    sh "pytest main.py"
                 }
             }
         } 
        stage('Build Docker Image') {
             steps {
                 script {
-                    sh '''
-                    docker build -t pythonapp .
-                    exit
-                    EOF
-                    '''
+                    sh "docker build -t pythonapp ."
                 }
             }
         }
       stage('Deploy') {
             steps {
                 script {
-                    sh '''
-                    docker run --name pythoncontainer -d -p 9000:80 pythonapp
+                    sh "docker run --name pythoncontainer -d -p 9000:80 pythonapp"
                     echo 'Application deployed successfully!'
-                    exit
-                    EOF
-                    '''
                 }
             }
         }
