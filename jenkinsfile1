@@ -14,7 +14,6 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/vijit8jan/hello-world.git'
             }
         }
-        stages {
         stage('Build and Test') {
             steps {
                 script {
