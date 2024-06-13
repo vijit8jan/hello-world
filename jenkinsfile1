@@ -19,7 +19,6 @@ pipeline {
                 script {
                     // Running tests
                     sh '''
-                    cd /home/ec2-user/hello-world
                     pytest main.py
                     exit
                     EOF
@@ -31,7 +30,6 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    cd ~/hello-world
                     docker build -t pythonapp .
                     exit
                     EOF
