@@ -20,8 +20,8 @@ pipeline {
                     // Running tests
                     sh '''
                     pwd
-                    git clone https://github.com/vijit8jan/hello-world.git
                     cd /home/ec2-user/hello-world
+                    git clone https://github.com/vijit8jan/hello-world.git
                     pytest main.py
                     exit
                     EOF
