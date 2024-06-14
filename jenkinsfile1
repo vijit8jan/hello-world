@@ -7,6 +7,10 @@ pipeline {
         SSH_KEY = credentials('ssh_key')
         EC2_IP = '52.3.249.142'
     }
+
+    tools {
+       dockerTool 'Docker'
+    }
     stages {
         stage('Checkout') {
             steps {
