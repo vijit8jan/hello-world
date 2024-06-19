@@ -9,7 +9,7 @@ pipeline {
     }
 
     tools {
-       dockerTool 'Docker'
+       dockerTools 'Docker'
     }
     stages {
         stage('Checkout') {
